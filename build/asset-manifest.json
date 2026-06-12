@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/wc_calendar/static/css/main.146ecee6.css",
+    "main.js": "/wc_calendar/static/js/main.ecc3a9fb.js",
+    "static/js/453.5a37aa3b.chunk.js": "/wc_calendar/static/js/453.5a37aa3b.chunk.js",
+    "static/media/Flag_of_FIFA.svg.png": "/wc_calendar/static/media/Flag_of_FIFA.svg.23b0ba907b3ff36978b6.png",
+    "index.html": "/wc_calendar/index.html",
+    "main.146ecee6.css.map": "/wc_calendar/static/css/main.146ecee6.css.map",
+    "main.ecc3a9fb.js.map": "/wc_calendar/static/js/main.ecc3a9fb.js.map",
+    "453.5a37aa3b.chunk.js.map": "/wc_calendar/static/js/453.5a37aa3b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.146ecee6.css",
+    "static/js/main.ecc3a9fb.js"
+  ]
+}
