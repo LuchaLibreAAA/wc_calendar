@@ -1,0 +1,243 @@
+/**
+ * Calendar Styles
+ * Modern, sleek design for the FIFA World Cup Calendar
+ * Responsive layout with smooth animations
+ */
+
+/* Main calendar container */
+.calendar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Loading state styles */
+.calendar-container.loading,
+.calendar-container.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #00bcd4;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error message styles */
+.error-message {
+  background: rgba(255, 71, 87, 0.2);
+  border: 1px solid #ff4757;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+}
+
+.error-message span {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Calendar header */
+.calendar-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-header h1 {
+  font-size: 2.5em;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #00bcd4, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 0.95em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Calendar content */
+.calendar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Date group - groups of matches by date */
+.date-group {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Highlight today's group */
+.date-group.today-group {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(0, 229, 255, 0.05));
+  border-left: 4px solid #00bcd4;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 188, 212, 0.2);
+}
+
+/* Date header */
+.date-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.date-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Today indicator badge */
+.today-indicator {
+  background: linear-gradient(135deg, #ff4757, #ee5a6f);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Matches grid */
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Responsive grid for smaller screens */
+@media (max-width: 768px) {
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-header h1 {
+    font-size: 1.8em;
+  }
+
+  .calendar-header {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-container {
+    padding: 10px;
+  }
+
+  .calendar-header h1 {
+    font-size: 1.5em;
+  }
+
+  .date-header h2 {
+    font-size: 1.2em;
+  }
+
+  .stats {
+    font-size: 0.85em;
+  }
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.empty-state p {
+  font-size: 1.2em;
+}
+
+/* Calendar footer - room for improvements */
+.calendar-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 188, 212, 0.3);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.calendar-footer p {
+  margin: 0;
+  font-size: 0.95em;
+}

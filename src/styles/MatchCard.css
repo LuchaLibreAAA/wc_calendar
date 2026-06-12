@@ -1,0 +1,300 @@
+/**
+ * MatchCard Styles
+ * Modern card design for individual match display
+ * Includes hover effects, animations, and shiny flag effects
+ */
+
+/* Main match card container */
+.match-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* Hover effect */
+.match-card:hover {
+  border-color: rgba(0, 188, 212, 0.5);
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(0, 229, 255, 0.05));
+  box-shadow: 0 8px 32px rgba(0, 188, 212, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Highlight for today's matches */
+.match-card.highlight {
+  border-color: rgba(0, 188, 212, 0.8);
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(0, 229, 255, 0.08));
+  box-shadow: 0 8px 32px rgba(0, 188, 212, 0.25);
+  border-width: 2px;
+}
+
+/* Today badge - indicator for current day matches */
+.today-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #ff9500, #ff6b00);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Match header - round and date info */
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Round badge */
+.round-badge {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.8), rgba(0, 229, 255, 0.6));
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Match date */
+.match-date {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Match time and venue section */
+.match-time-venue {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-time {
+  font-weight: 600;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.match-venue {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Teams container */
+.teams-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* Individual team styling */
+.team {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Home team */
+.home-team {
+  text-align: right;
+}
+
+/* Away team */
+.away-team {
+  text-align: left;
+}
+
+.team-name {
+  font-weight: 700;
+  font-size: 0.95em;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/**
+ * Country Flag Styling
+ * Real country flags from flagcdn.com API
+ * Includes shiny/glow hover effect for visual appeal
+ */
+.team-flag {
+  width: 80px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: brightness(0.95) contrast(1.05);
+  cursor: pointer;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+}
+
+/**
+ * Flag Error State
+ * Shows when flag fails to load from CDN
+ */
+.team-flag.flag-error {
+  opacity: 0.6;
+  border: 2px dashed rgba(0, 188, 212, 0.4);
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(0, 229, 255, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+/**
+ * SHINY HOVER EFFECT
+ * Multi-layered hover effect for a "shiny" appearance:
+ * - Brightness increase for glow
+ * - Shadow enhancement for depth
+ * - Subtle scale for lift effect
+ * - Color saturation increase
+ */
+.team-flag:hover {
+  /* Main shiny/glow effect */
+  filter: brightness(1.3) contrast(1.15) saturate(1.2) drop-shadow(0 0 8px rgba(0, 188, 212, 0.6));
+  
+  /* Enhanced shadow for depth */
+  box-shadow: 
+    0 8px 24px rgba(0, 188, 212, 0.4),
+    0 0 20px rgba(0, 229, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+  
+  /* Lift effect on hover */
+  transform: scale(1.15) translateY(-8px);
+  
+  /* Smooth animation trigger */
+  animation: flagShine 0.6s ease-in-out;
+}
+
+/**
+ * SHINE ANIMATION
+ * Creates a dynamic shine/sparkle effect on flag hover
+ * Uses opacity variation to simulate light reflection
+ */
+@keyframes flagShine {
+  0% {
+    opacity: 0.8;
+    filter: brightness(1.3) contrast(1.15) saturate(1.2) drop-shadow(0 0 8px rgba(0, 188, 212, 0.6));
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.4) contrast(1.2) saturate(1.3) drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
+  }
+  100% {
+    opacity: 0.95;
+    filter: brightness(1.3) contrast(1.15) saturate(1.2) drop-shadow(0 0 8px rgba(0, 188, 212, 0.6));
+  }
+}
+
+/* VS text between teams */
+.vs-text {
+  font-weight: 700;
+  color: rgba(0, 188, 212, 0.6);
+  font-size: 0.8em;
+  padding: 0 8px;
+  letter-spacing: 1px;
+}
+
+/* Match footer - status info */
+.match-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.match-status {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
+  .match-card {
+    padding: 16px;
+  }
+
+  .teams-container {
+    gap: 8px;
+  }
+
+  /* Smaller flags on mobile */
+  .team-flag {
+    width: 60px;
+    height: 38px;
+  }
+
+  /* Slightly reduced hover scale on mobile for better UX */
+  .team-flag:hover {
+    transform: scale(1.1) translateY(-6px);
+  }
+
+  .team-name {
+    font-size: 0.85em;
+  }
+
+  .match-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .match-time-venue {
+    gap: 4px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+
+  .match-time {
+    font-size: 0.9em;
+  }
+}
+
+/* Animation for new cards */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.match-card {
+  animation: cardAppear 0.4s ease-out;
+}

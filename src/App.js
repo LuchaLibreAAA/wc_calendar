@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+/**
+ * App Component
+ * Main entry point for the FIFA World Cup Calendar Application
+ * 
+ * Purpose:
+ *   - Root component that renders the calendar
+ *   - Sets up the overall app structure and styling
+ * 
+ * Future Improvements:
+ *   - Add navigation/filters for different views
+ *   - Implement search functionality
+ *   - Add user preferences (theme, timezone, etc.)
+ *   - Integrate with live API for real-time updates
+ */
+
+import React from 'react';
+import Calendar from './components/Calendar';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* Main Calendar Component */}
+      <Calendar />
     </div>
   );
 }
